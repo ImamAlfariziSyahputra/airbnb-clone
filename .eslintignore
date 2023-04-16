@@ -1,0 +1,16 @@
+.next
+.nuxt
+
+node_modules
+public
+dist
+coverage
+
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+README.md
+
+*.css
+*.bat
+
