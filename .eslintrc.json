@@ -23,12 +23,27 @@
   "rules": {
     //! import
     "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
     //! typescript
     "@typescript-eslint/no-unused-vars": "warn",
     //! react
     "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": ["function-declaration", "arrow-function"],
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/prop-types": "off",
     //! tailwindcss
     "tailwindcss/no-custom-classname": "off",
-    "tailwindcss/classnames-order": "error"
+    "tailwindcss/classnames-order": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   }
 }
