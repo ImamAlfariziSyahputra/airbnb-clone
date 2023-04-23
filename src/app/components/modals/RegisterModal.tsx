@@ -42,19 +42,6 @@ const RegisterModal = () => {
     } finally {
       setIsLoading(false);
     }
-
-    // axios
-    //   .post('/api/register', data)
-    //   .then(() => {
-    //     registerModal.onClose();
-    //   })
-    //   .catch((err) => {
-    //     console.error('err =>', err.message);
-    //     toast.error(err.message);
-    //   })
-    //   .finally(() => {
-    //     setIsLoading(false);
-    //   });
   };
 
   const bodyContent = (
