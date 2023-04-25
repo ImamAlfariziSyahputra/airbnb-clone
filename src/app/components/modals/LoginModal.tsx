@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import useLoginModal from '@/app/hooks/useLoginModal';
+import useRegisterModal from '@/app/hooks/useRegisterModal';
 import { signIn } from 'next-auth/react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
@@ -16,6 +17,7 @@ import Modal from './Modal';
 
 const LoginModal = () => {
   const router = useRouter();
+  const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,7 +33,6 @@ const LoginModal = () => {
   });
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log('data =>', data);
     setIsLoading(true);
 
     signIn('credentials', {
@@ -51,6 +52,11 @@ const LoginModal = () => {
       }
     });
   };
+
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className='flex flex-col gap-4'>
@@ -92,13 +98,13 @@ const LoginModal = () => {
       />
       <div className='mt-4 text-center font-light text-neutral-500'>
         <div className='flex flex-row items-center justify-center gap-2'>
-          <span className=''>Already have an account?</span>
+          <span className=''>First time using Airbnb?</span>
           <button
             type='button'
-            onClick={loginModal.onClose}
+            onClick={toggle}
             className='cursor-pointer text-neutral-800 hover:underline'
           >
-            Login
+            Create an account
           </button>
         </div>
       </div>
