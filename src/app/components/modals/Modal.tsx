@@ -96,7 +96,7 @@ const Modal: React.FC<ModalProps> = ({
               <div className='text-lg font-semibold'>{title}</div>
             </div>
 
-            <div className='h-[calc(100vh-77px-4rem)] overflow-y-auto'>
+            <div className='max-h-[calc(100vh-77px-4rem)] overflow-y-auto'>
               {/* BODY */}
               <div className='relative flex-auto p-6'>{body}</div>
               {/* FOOTER */}
